@@ -1,0 +1,11 @@
+<data xmlns="urn:example">
+  <interface>
+    <name>eth0</name>
+    <address>1.2.3.4/24</address>
+  </interface>
+  <interface>
+    <name>lo</name>
+    <address>127.0.0.1</address>
+  </interface>
+  <hostname>foobar</hostname>
+</data>

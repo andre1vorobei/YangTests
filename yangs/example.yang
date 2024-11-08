@@ -1,0 +1,18 @@
+module example {
+   namespace "urn:example";
+   prefix "ex";
+   container data {
+     list interface {
+       key name;
+       leaf name {
+         type string;
+       }
+       leaf address {
+         type string;
+       }
+     }
+     leaf hostname {
+       type string;
+     }
+   }
+}
