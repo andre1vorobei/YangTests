@@ -30,15 +30,18 @@ int main()
 
     ly_ctx_new("yangs/", 0, &ctx);
     mod = ly_ctx_load_module(ctx, "example", 0, 0);
-    ly_ctx_load_module(ctx, "zelax-keepalive", 0, 0);
     // lys_print_module(lo, mod, LYS_OUT_YANG, 0, 0);
 
     lyd_parse_data(ctx, 0, li, LYD_XML, LYD_PARSE_ONLY,0, &tree);
+    printf("Before the addition:\n");
     lyd_print_tree(lo, tree, LYD_XML,0);
     printf("\n");
-    lyd_new_path(tree, ctx, "/example:data/interface[name='eth3']", 0, LYD_NEW_PATH_UPDATE, 0);
 
-    lyd_print_tree(lo, tree, LYD_XML,0);
+    if(!lyd_new_path(tree, ctx, "/example:interfaces/interface/name", "eth3", LYD_NEW_PATH_UPDATE, 0)){
+        printf("After the addition:\n");
+        lyd_print_tree(lo, tree, LYD_XML,0);
+    }
+
 
     // printf("%d\n", lyd_validate_module(&tree, mod, 0, &diff));
     // lyd_print_tree(lo, diff, LYD_XML,0);

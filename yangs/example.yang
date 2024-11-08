@@ -1,7 +1,7 @@
 module example {
-   namespace "urn:example";
-   prefix "ex";
-   container data {
+   namespace "urn:ietf:params:xml:ns:yang:ietf-interfaces";
+   prefix "ietf";
+   container interfaces {
      list interface {
        key name;
        leaf name {
@@ -10,9 +10,6 @@ module example {
        leaf address {
          type string;
        }
-     }
-     leaf hostname {
-       type string;
      }
    }
 }
